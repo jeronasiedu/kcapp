@@ -9,6 +9,7 @@ export const messages = [
     text: "If you ever feel like someone is following your car, turn right four times and it will eventually circle. If they are still behind you, that means they are following you. Don't drive home, just call the police and drive to the police station",
     upvote: '45',
     downvote: '19',
+    id: 1,
     comments: [
       {
         author: 'Alfred Scott',
@@ -33,6 +34,7 @@ export const messages = [
   {
     author: 'Wayne Lewis',
     time: '1m',
+    id: 2,
     profile:
       'https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=386&q=80',
     headline: 'Which learning management systems are free to use?',
@@ -57,6 +59,7 @@ export const messages = [
   {
     author: 'Mable Valdez',
     time: '28m',
+    id: 3,
     profile:
       'https://images.unsplash.com/photo-1542206395-9feb3edaa68d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80',
     headline:

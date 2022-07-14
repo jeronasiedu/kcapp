@@ -11,12 +11,10 @@ import {
 } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import { BsHeart, BsReply } from 'react-icons/bs'
-import { VscCommentDiscussion } from 'react-icons/vsc'
-const AuthorMessage = ({ message }) => {
-  const router = useRouter()
-  const handleRouting = () => {
-    router.push(`/post/${message.id}`)
-  }
+import { messages } from '../data/dummy'
+const MessageInfo = () => {
+  const { query } = useRouter()
+  const message = messages.find((message) => message.id === +query.id)
   return (
     <VStack
       w="full"
@@ -30,37 +28,29 @@ const AuthorMessage = ({ message }) => {
     >
       <HStack w="full" justifyContent="space-between">
         <HStack>
-          <Avatar src={message.profile} alt="user avatar" size="sm" />
+          <Avatar src={message?.profile} alt="user avatar" size="sm" />
           <Heading size="sm" fontWeight={400}>
-            {message.author}
+            {message?.author}
           </Heading>
           <Text fontSize="sm" color="GrayText">
-            . {message.time}
+            . {message?.time}
           </Text>
         </HStack>
         <CloseButton />
       </HStack>
-      <Heading size="md">{message.headline}</Heading>
+      <Heading size="md">{message?.headline}</Heading>
       <Text color="gray.600" noOfLines={[4, 5, 6]}>
-        {message.text}
+        {message?.text}
       </Text>
       <HStack w="full" justifyContent="space-between">
-        <HStack spacing={6}>
-          <ButtonGroup isAttached variant="outline" size="sm">
-            <IconButton icon={<BsHeart />} />
-            <Button cursor="default">{message.upvote}</Button>
-          </ButtonGroup>
-          <IconButton
-            icon={<VscCommentDiscussion />}
-            variant="outline"
-            size="sm"
-            onClick={handleRouting}
-          />
-        </HStack>
+        <ButtonGroup isAttached variant="outline" size="sm">
+          <IconButton icon={<BsHeart />} />
+          <Button cursor="default">{message?.upvote}</Button>
+        </ButtonGroup>
         <IconButton variant="outline" icon={<BsReply />} size="sm" />
       </HStack>
     </VStack>
   )
 }
 
-export default AuthorMessage
+export default MessageInfo

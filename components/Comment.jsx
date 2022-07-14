@@ -10,8 +10,7 @@ import {
   VStack,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
-import { BiDownvote, BiUpvote } from 'react-icons/bi'
-import { VscCommentDiscussion, VscLiveShare } from 'react-icons/vsc'
+import { BsHeart, BsReply } from 'react-icons/bs'
 const Comment = ({ author, text, upvote }) => {
   return (
     <VStack
@@ -58,17 +57,11 @@ const Comment = ({ author, text, upvote }) => {
       <HStack w="full" justifyContent="space-between">
         <HStack spacing={6}>
           <ButtonGroup isAttached variant="outline" size="sm">
-            <IconButton icon={<BiUpvote />} />
+            <IconButton icon={<BsHeart />} />
             <Button cursor="default">{upvote}</Button>
-            <IconButton icon={<BiDownvote />} />
           </ButtonGroup>
-          <IconButton
-            icon={<VscCommentDiscussion />}
-            variant="outline"
-            size="sm"
-          />
         </HStack>
-        <IconButton variant="outline" icon={<VscLiveShare />} size="sm" />
+        <IconButton variant="outline" icon={<BsReply />} size="sm" />
       </HStack>
     </VStack>
   )

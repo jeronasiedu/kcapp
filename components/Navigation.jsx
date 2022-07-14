@@ -18,17 +18,17 @@ import { VscTelescope } from 'react-icons/vsc'
 const navLinks = [
   {
     name: 'Home',
-    url: '',
+    url: '/',
     icon: <BiHomeSmile size={18} />,
   },
   {
     name: 'Explore Topics',
-    url: '',
+    url: '/',
     icon: <VscTelescope size={20} />,
   },
   {
     name: 'My Answers',
-    url: '',
+    url: '/',
     icon: <BsChatSquareText size={18} />,
   },
 ]
@@ -72,7 +72,9 @@ const MobileMenu = () => {
       <MenuList>
         {navLinks.map((item, index) => (
           <MenuItem icon={item.icon} key={index}>
-            {item.name}
+            <Link href={item.url} passHref>
+              <ChakraLink>{item.name}</ChakraLink>
+            </Link>
           </MenuItem>
         ))}
       </MenuList>
