@@ -9,9 +9,24 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.2.3",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "@mantine/core": "^4.2.12",
+    "@mantine/dates": "^4.2.12",
+    "@mantine/form": "^4.2.12",
+    "@mantine/hooks": "^4.2.12",
+    "@mantine/modals": "^4.2.12",
+    "@mantine/next": "^4.2.12",
+    "@mantine/notifications": "^4.2.12",
+    "@mantine/rte": "^4.2.12",
+    "dayjs": "^1.11.3",
+    "framer-motion": "^6",
     "next": "12.2.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-icons": "^4.4.0",
+    "zustand": "^4.0.0-rc.1"
   },
   "devDependencies": {
     "eslint": "8.19.0",

@@ -1,7 +1,23 @@
+import { ChakraProvider, extendTheme } from '@chakra-ui/react'
+import { mode } from '@chakra-ui/theme-tools'
 import '../styles/globals.css'
-
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  const styles = {
+    global: (props) => ({
+      body: {
+        // fontFamily: 'raleway, sans-serif',
+        color: mode('gray.800', 'whiteAlpha.900')(props),
+        bg: mode('#f5f6fa', '#010106')(props),
+        // lineHeight: 'base',
+      },
+    }),
+  }
+  const theme = extendTheme({ styles })
+  return (
+    <ChakraProvider theme={theme}>
+      <Component {...pageProps} />
+    </ChakraProvider>
+  )
 }
 
 export default MyApp
