@@ -63,7 +63,6 @@ const CommentBox = ({}) => {
           rounded="full"
           transform="translate(-50%)"
         />
-
         {comments?.map((comment, index) => (
           <Comment key={index} {...comment} />
         ))}

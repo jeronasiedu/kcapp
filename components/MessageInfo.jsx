@@ -12,7 +12,7 @@ import {
 import { useRouter } from 'next/router'
 import { BsHeart, BsReply } from 'react-icons/bs'
 import { messages } from '../data/dummy'
-const MessageInfo = () => {
+const MessageInfo = ({ toggleReplyVisibility }) => {
   const { query } = useRouter()
   const message = messages.find((message) => message.id === +query.id)
   return (
@@ -47,7 +47,12 @@ const MessageInfo = () => {
           <IconButton icon={<BsHeart />} />
           <Button cursor="default">{message?.upvote}</Button>
         </ButtonGroup>
-        <IconButton variant="outline" icon={<BsReply />} size="sm" />
+        <IconButton
+          variant="outline"
+          icon={<BsReply />}
+          size="sm"
+          onClick={toggleReplyVisibility}
+        />
       </HStack>
     </VStack>
   )

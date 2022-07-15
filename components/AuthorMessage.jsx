@@ -48,16 +48,18 @@ const AuthorMessage = ({ message }) => {
         <HStack spacing={6}>
           <ButtonGroup isAttached variant="outline" size="sm">
             <IconButton icon={<BsHeart />} />
-            <Button cursor="default">{message.upvote}</Button>
+            <Button color="gray.600">{message.upvote}</Button>
           </ButtonGroup>
-          <IconButton
-            icon={<VscCommentDiscussion />}
-            variant="outline"
-            size="sm"
-            onClick={handleRouting}
-          />
         </HStack>
-        <IconButton variant="outline" icon={<BsReply />} size="sm" />
+        <ButtonGroup
+          isAttached
+          variant="outline"
+          size="sm"
+          onClick={handleRouting}
+        >
+          <IconButton icon={<VscCommentDiscussion />} variant="outline" />
+          <Button color="gray.600">18</Button>
+        </ButtonGroup>
       </HStack>
     </VStack>
   )

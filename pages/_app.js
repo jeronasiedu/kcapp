@@ -2,7 +2,7 @@ import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import { mode } from '@chakra-ui/theme-tools'
 import Layout from '../components/layout'
 import '../styles/globals.css'
-import 'rodal/lib/rodal.css'
+import { MantineProvider } from '@mantine/core'
 function MyApp({ Component, pageProps }) {
   const styles = {
     global: (props) => ({
@@ -16,13 +16,13 @@ function MyApp({ Component, pageProps }) {
   }
   const theme = extendTheme({ styles })
   return (
-    <>
+    <MantineProvider>
       <ChakraProvider theme={theme}>
         <Layout>
           <Component {...pageProps} />
         </Layout>
       </ChakraProvider>
-    </>
+    </MantineProvider>
   )
 }
 
