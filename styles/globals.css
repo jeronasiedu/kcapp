@@ -14,3 +14,8 @@ a {
 * {
   box-sizing: border-box;
 }
+
+#modal-container {
+  width: min(98%, 35rem) !important;
+  height: 70% !important;
+}
