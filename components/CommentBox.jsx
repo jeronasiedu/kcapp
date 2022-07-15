@@ -22,7 +22,7 @@ const CommentBox = ({}) => {
   const message = messages?.find((message) => message.id === +query.id)
   const comments = message?.comments
   return (
-    <AnimatePresence>
+    <>
       <VStack
         as={motion.article}
         variants={replyVariant}
@@ -68,7 +68,7 @@ const CommentBox = ({}) => {
           <Comment key={index} {...comment} />
         ))}
       </VStack>
-    </AnimatePresence>
+    </>
   )
 }
 

@@ -1,13 +1,11 @@
 import useStore from '../context/store'
-
-import { MantineProvider } from '@mantine/core'
 import { Modal, Textarea } from '@mantine/core'
 import { Button } from '@chakra-ui/react'
 function NewMessageModal() {
   const isOpen = useStore((state) => state.isModalOpen)
   const onClose = useStore((state) => state.closeModal)
   return (
-    <MantineProvider>
+    <>
       <Modal
         opened={isOpen}
         onClose={onClose}
@@ -30,7 +28,7 @@ function NewMessageModal() {
           Submit
         </Button>
       </Modal>
-    </MantineProvider>
+    </>
   )
 }
 export default NewMessageModal
