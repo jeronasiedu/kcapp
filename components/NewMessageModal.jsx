@@ -1,57 +1,36 @@
 import useStore from '../context/store'
-import Rodal from 'rodal'
-import {
-  Heading,
-  HStack,
-  VStack,
-  CloseButton,
-  Divider,
-  Textarea,
-  Button,
-} from '@chakra-ui/react'
+
+import { MantineProvider } from '@mantine/core'
+import { Modal, Textarea } from '@mantine/core'
+import { Button } from '@chakra-ui/react'
 function NewMessageModal() {
   const isOpen = useStore((state) => state.isModalOpen)
   const onClose = useStore((state) => state.closeModal)
   return (
-    <>
-      <Rodal
-        visible={isOpen}
+    <MantineProvider>
+      <Modal
+        opened={isOpen}
         onClose={onClose}
-        closeOnEsc={true}
-        showCloseButton={false}
-        animation="door"
-        customMaskStyles={{
-          position: 'fixed',
-          inset: 0,
-          backgroundColor: 'rgba(0,0,0,0.6)',
-        }}
-        id="modal-container"
-        className="modal-parent"
+        title="Create a Post"
+        centered
+        size="lg"
+        transition="rotate-left"
+        overlayBlur={2}
       >
-        <VStack h="full">
-          <HStack w="full" justifyContent="space-between">
-            <Heading size="md" fontWeight="400">
-              Create Post
-            </Heading>
-            <CloseButton onClick={onClose} />
-          </HStack>
-          <Divider />
-          <Textarea
-            placeholder="Don't be afraid to share"
-            resize="none"
-            h="full"
-          />
-          <Button
-            textTransform="uppercase"
-            w="full"
-            colorScheme="blue"
-            flexShrink="0"
-          >
-            post
-          </Button>
-        </VStack>
-      </Rodal>
-    </>
+        <Textarea
+          placeholder="Feel free, pour everything you have in your mind"
+          label="Express yourself"
+          required
+          autosize
+          minRows={4}
+          maxRows={10}
+          mb={10}
+        />
+        <Button w="full" colorScheme="blue">
+          Submit
+        </Button>
+      </Modal>
+    </MantineProvider>
   )
 }
 export default NewMessageModal
