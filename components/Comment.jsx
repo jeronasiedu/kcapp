@@ -19,7 +19,7 @@ const Comment = ({ author, text, upvote }) => {
   const [isReplyVisible, setIsReplyVisible] = useState(false)
   const toggleReplyVisibility = () => setIsReplyVisible(!isReplyVisible)
   return (
-    <VStack w="85%" ml="auto">
+    <VStack w="85%" ml="auto" alignSelf="flex-end">
       <VStack
         bg="white"
         as={motion.article}
@@ -33,7 +33,6 @@ const Comment = ({ author, text, upvote }) => {
           opacity: 0,
         }}
         p={3}
-        alignSelf="flex-end"
         rounded="md"
         alignItems="flex-start"
         spacing={3}
