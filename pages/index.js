@@ -1,10 +1,10 @@
-import { IconButton, VStack, Show, Box, Text, Button } from '@chakra-ui/react'
+import { Button, IconButton, Show, VStack } from '@chakra-ui/react'
+import { Player } from '@lottiefiles/react-lottie-player'
 import Head from 'next/head'
 import AuthorMessage from '../components/AuthorMessage'
-import { messages } from '../data/dummy'
-import { BiMessage } from 'react-icons/bi'
 import NewMessageModal from '../components/NewMessageModal'
 import useStore from '../context/store'
+import { messages } from '../data/dummy'
 export default function Home() {
   const openModal = useStore((state) => state.openModal)
   return (
@@ -31,10 +31,19 @@ export default function Home() {
         ))}
         <Show below="md">
           <IconButton
-            icon={<BiMessage />}
-            colorScheme="blue"
+            icon={
+              <Player
+                src="/chat.json"
+                autoplay
+                loop
+                style={{
+                  width: '1.8rem',
+                }}
+              />
+            }
             size="lg"
             isRound
+            colorScheme="blue"
             pos="fixed"
             right="6"
             bottom="5"
@@ -42,6 +51,7 @@ export default function Home() {
             onClick={openModal}
           />
         </Show>
+
         <NewMessageModal />
       </VStack>
     </>
